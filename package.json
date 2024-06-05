@@ -29,7 +29,7 @@
     "predeploy": "npm run build && node inline-styles.js css && node inline-styles.js html",
     "deploy": "surge --project ./deploy --domain lean-land.surge.sh",
     "postinstall": "patch-package",
-    "updateSurge": "surge --project ./deploy --domain lean-land.surge.sh"
+    "updateSurge": "surge --project ./deploy --domain full-swing.surge.sh"
   },
   "staticFiles": {
     "staticFiles": {

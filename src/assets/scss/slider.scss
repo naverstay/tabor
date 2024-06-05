@@ -399,7 +399,7 @@
           width: 54%;
           background: $color_gray_light;
           transform: translateY(8px);
-          border-radius: 0 15px 90px 0;
+          border-radius: 0 40px 40px 0;
 
           .slide {
             background: $color_gray_light;
@@ -422,7 +422,7 @@
         }
 
         @include respond-to-min($screen_wide) {
-          border-radius: 0 20px 120px 0;
+          border-radius: 0 80px 80px 0;
           transform: translateY(12px);
 
           .slide {
