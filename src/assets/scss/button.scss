@@ -1,0 +1,133 @@
+@import "var";
+
+.btn {
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--btn-size);
+  padding: 0 var(--btn-gap);
+  font: 400 var(--btn-font-size)/1.2222 $Roboto;
+
+  &--round {
+    border-radius: calc(var(--btn-size, 0) / 2);
+  }
+
+  * {
+    pointer-events: none;
+  }
+
+  &--green {
+    transition: background .3s, color .3s;
+    background: $color_green;
+    color: $color_white;
+
+    &:hover {
+      background: darken($color_green, 5%);
+    }
+  }
+
+  &.__s-48 {
+    --btn-size: 28px;
+    --btn-gap: 12px;
+    --btn-font-size: 10px;
+
+    @include respond-to-min($screen_md) {
+      --btn-size: 32px;
+      --btn-gap: 23px;
+      --btn-font-size: 14px;
+    }
+
+    @include respond-to-min($screen_lg) {
+      --btn-size: 38px;
+      --btn-gap: 28px;
+      --btn-font-size: 16px;
+    }
+
+    @include respond-to-min($screen_xl) {
+      --btn-size: 40px;
+      --btn-gap: 20px;
+      --btn-font-size: 14px;
+    }
+
+    @include respond-to-min($screen_wide) {
+      --btn-size: 48px;
+      --btn-gap: 30px;
+      --btn-font-size: 18px;
+    }
+  }
+
+  &.__s-54 {
+    --btn-size: 30px;
+    --btn-gap: 8px;
+    --btn-font-size: 10px;
+
+    @include respond-to-min($screen_sm) {
+      --btn-size: 34px;
+    }
+
+    @include respond-to-min($screen_md) {
+      --btn-size: 38px;
+      --btn-gap: 8px;
+      --btn-font-size: 14px;
+    }
+
+    @include respond-to-min($screen_lg) {
+      --btn-size: 40px;
+      --btn-gap: 7px;
+      --btn-font-size: 16px;
+    }
+
+    @include respond-to-min($screen_xl) {
+      --btn-size: 44px;
+      --btn-gap: 10px;
+    }
+
+    @include respond-to-min($screen_wide) {
+      --btn-size: 54px;
+      --btn-gap: 12px;
+      --btn-font-size: 18px;
+    }
+  }
+
+  &.__s-64 {
+    --btn-size: 32px;
+    --btn-gap: 20px;
+    --btn-font-size: 12px;
+
+    @include respond-to-min($screen_sm) {
+      --btn-size: 34px;
+      --btn-gap: 22px;
+    }
+
+    @include respond-to-min($screen_md) {
+      --btn-size: 38px;
+      --btn-gap: 24px;
+      --btn-font-size: 14px;
+    }
+
+    @include respond-to-min($screen_lg) {
+      --btn-size: 42px;
+      --btn-gap: 22px;
+    }
+
+    @include respond-to-min($screen_xl) {
+      --btn-size: 48px;
+      --btn-gap: 30px;
+      --btn-font-size: 18px;
+    }
+
+    @include respond-to-min($screen_xxl) {
+      --btn-size: 48px;
+      --btn-gap: 30px;
+      --btn-font-size: 18px;
+    }
+
+    @include respond-to-min($screen_wide) {
+      --btn-size: 64px;
+      --btn-gap: 40px;
+      --btn-font-size: 24px;
+    }
+  }
+}

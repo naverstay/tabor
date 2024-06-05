@@ -1,0 +1,26 @@
+include ./mixins
+
+mixin datings(props = {})
+  .datings
+    .datings--title В Мяте знакомятся уже 5&nbsp;миллионов человек — присоединяйтесь!
+    .datings--app.flex
+      +app_btns()
+
+    .datings--slider.relative
+      .datings--slider_island.relative.flex.__center.__center-align
+        .datings--slider_holder
+          #js-slider-datings.swiper
+            .swiper-wrapper
+              each u, i in new Array(3).fill(null)
+                - let user = i + 1;
+                .swiper-slide.slide.relative(class=( 'js-user-' + user))
+                  each n, ind in new Array(7).fill(null)
+                    - let slide = ind + 1
+                      +img_src('./assets/image/users/', 'user-' + user + '-' + slide, 'png')(loading='lazy' width=100 height=100 class=('datings--slider_item item-' + slide))
+
+      //-.screens--slider_holder.flex.__center-align.__center.relative
+        .functions--slider_controls.flex.__between
+          #js-slider-datings-prev.btn--green.swiper-button-prev.slider--button.__prev.flex.__center.__center-align
+            img(alt='img' src='./assets/svg/arrow_l.svg' width=42 height=42)
+          #js-slider-datings-next.btn--green.swiper-button-next.slider--button.__next.flex.__center.__center-align
+            img(alt='img' src='./assets/svg/arrow_r.svg' width=42 height=42)

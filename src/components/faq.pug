@@ -1,0 +1,23 @@
+include ./mixins
+
+
+mixin faq(props = {})
+  .faq.relative
+    .faq--title Частые вопросы
+    .faq--list
+      +loop_while(3)
+        .faq--item
+          .faq--item_title.relative Что делать если не могу зарегистрироваться?
+          .faq--item_text
+            p!= lorem
+
+      .hide__before-xl.faq--list_more.js-toggle-block(data-toggle='faq-list')
+        +loop_while(3)
+          .faq--item
+            .faq--item_title.relative Как понять, что чат безопасен?
+            .faq--item_text
+              p!= lorem
+
+    .faq--more.hide__after-xl.flex.__center
+      span.btn.btn--green.__s-64.btn--round.js-toggle-faq(data-toggle='faq-list')
+        span Больше вопросов

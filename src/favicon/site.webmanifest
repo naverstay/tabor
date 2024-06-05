@@ -1,0 +1,22 @@
+{
+    "name": "Myata",
+    "short_name": "Myata",
+    "start_url": "https://lean-land.surge.sh",
+    "icons": [
+        {
+            "src": "android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable any"
+        },
+        {
+            "src": "android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable any"
+        }
+    ],
+    "theme_color": "#43b088",
+    "background_color": "#43b088",
+    "display": "standalone"
+}

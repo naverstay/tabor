@@ -1,0 +1,30 @@
+mixin promo(props = {})
+  .promo
+    .promo--left
+      h1.promo--title Мята - знакомства в&nbsp;твоем городе
+      .promo--text Устанавливайте приложение бесплатно и знакомьтесь в любом уголке Вашей страны!
+      .promo--app
+        +app_btns()
+
+    .promo--right
+      .promo--screen
+        +img_src('./assets/image/', 'phone-3', 'png')(width=347 height=640)
+      .promo--screen
+        +img_src('./assets/image/', 'phone-2', 'png')(width=347 height=640)
+
+    .promo--stat
+      .promo--stat_item
+        b 5М+
+        p скачиваний
+
+      .promo--stat_item
+        b 650000+
+        p человек ежедневно
+
+      .promo--stat_item
+        b
+          span 4.5&nbsp;
+          img(alt='img' src=('./assets/svg/star_gray.svg') width=24 height=22)
+
+        p
+          span рейтинг

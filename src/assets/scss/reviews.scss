@@ -1,0 +1,274 @@
+@import "var";
+
+.reviews {
+  padding-top: 30px;
+
+  @include respond-to-min($screen_sm) {
+    padding-top: 33px;
+  }
+
+  @include respond-to-min($screen_md) {
+    padding-top: 38px;
+  }
+
+  @include respond-to-min($screen_xl) {
+    padding-top: 74px;
+  }
+
+  @include respond-to-min($screen_wide) {
+    padding-top: 98px;
+  }
+
+  &--title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 26px;
+    margin-bottom: 16px;
+
+    @include respond-to-min($screen_md) {
+      font-size: 28px;
+      line-height: 34px;
+      margin-bottom: 28px;
+    }
+
+    @include respond-to-min($screen_xl) {
+      font-size: 36px;
+      line-height: 45px;
+      margin-bottom: 48px;
+    }
+
+    @include respond-to-min($screen_wide) {
+      font-size: 48px;
+      line-height: 60px;
+      margin-bottom: 64px;
+    }
+  }
+
+  &--slider {
+    margin: 0 auto;
+    max-width: 292px;
+
+    @include respond-to-min($screen_sm) {
+      max-width: 310px;
+    }
+
+    @include respond-to-min($screen_md) {
+      max-width: 378px;
+    }
+
+    @include respond-to-min($screen_lg) {
+      max-width: 386px;
+    }
+
+    @include respond-to-min($screen_xl) {
+      max-width: 500px;
+    }
+
+    @include respond-to-min($screen_wide) {
+      max-width: 668px;
+    }
+
+    .swiper {
+      overflow: visible;
+    }
+
+    .slide {
+      padding: 5px;
+      transition: opacity .3s;
+
+      &:not(.swiper-slide-active) {
+        opacity: .4;
+      }
+
+      @include respond-to-min($screen_md) {
+        padding: 6px;
+      }
+
+      @include respond-to-min($screen_xl) {
+        padding: 11px;
+      }
+
+      @include respond-to-min($screen_wide) {
+        padding: 14px;
+      }
+    }
+
+    &_rating {
+      --rating-font-size: 14px;
+      gap: 3px;
+      font-weight: 500;
+      color: $color_green_light;
+      font-size: var(--rating-font-size);
+
+      img {
+        height: calc(var(--rating-font-size) - 2px);
+        width: auto;
+      }
+
+      @include respond-to-min($screen_md) {
+        --rating-font-size: 16px;
+        gap: 4px;
+      }
+
+      @include respond-to-min($screen_xl) {
+        --rating-font-size: 18px;
+        gap: 5px;
+      }
+
+      @include respond-to-min($screen_wide) {
+        --rating-font-size: 24px;
+        gap: 6px;
+      }
+    }
+
+    &_caption {
+      margin-bottom: 4px;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 16px;
+
+      h4 {
+        font-weight: 500;
+      }
+
+      @include respond-to-min($screen_md) {
+        font-size: 16px;
+        line-height: 18px;
+        margin-bottom: 6px;
+      }
+
+      @include respond-to-min($screen_xl) {
+        font-size: 21px;
+        line-height: 24px;
+        margin-bottom: 10px;
+      }
+
+      @include respond-to-min($screen_wide) {
+        font-size: 28px;
+        line-height: 32px;
+        margin-bottom: 14px;
+      }
+    }
+
+    &_more {
+      padding-top: 5px;
+      font-size: 10px;
+
+      @include respond-to-min($screen_md) {
+        font-size: 12px;
+      }
+
+      @include respond-to-min($screen_xl) {
+        line-height: 18px;
+      }
+
+      @include respond-to-min($screen_wide) {
+        padding-top: 12px;
+        font-size: 16px;
+        line-height: 26px;
+      }
+    }
+
+    &_text {
+      margin-right: -10px;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+
+      @include respond-to-min($screen_xl) {
+        padding-right: 20px;
+      }
+
+      p {
+        font-size: 11px;
+        font-weight: 400;
+        line-height: 16px;
+        color: $color_gray;
+
+        @include respond-to-min($screen_md) {
+          font-size: 14px;
+          line-height: 18px;
+        }
+
+        @include respond-to-min($screen_xl) {
+          line-height: 20px;
+        }
+
+        @include respond-to-min($screen_wide) {
+          font-size: 18px;
+          line-height: 26px;
+        }
+      }
+    }
+
+    &_controls {
+      --slider-btn-size: 26px;
+      position: absolute;
+      margin: calc(-0.5 * var(--slider-btn-size)) calc(-0.3 * var(--slider-btn-size));
+      top: 50%;
+      left: 0;
+      right: 0;
+      pointer-events: none;
+      z-index: 2;
+
+      @include respond-to-min($screen_sm) {
+        --slider-btn-size: 28px;
+        margin: calc(-0.5 * var(--slider-btn-size)) calc(-0.4 * var(--slider-btn-size));
+      }
+
+      @include respond-to-min($screen_md) {
+        --slider-btn-size: 32px;
+        margin: calc(-0.5 * var(--slider-btn-size));
+      }
+
+      @include respond-to-min($screen_xl) {
+        --slider-btn-size: 46px;
+        margin: calc(-0.5 * var(--slider-btn-size)) calc(-1 * var(--slider-btn-size));
+      }
+
+      @include respond-to-min($screen_wide) {
+        --slider-btn-size: 60px;
+      }
+    }
+
+    &_item {
+      padding: 22px 26px;
+      border-radius: 34px 10px 34px 34px;
+      background: $color_white;
+
+      @include respond-to-min($screen_md) {
+        padding: 25px 32px;
+        border-radius: 34px 10px 34px 34px;
+      }
+
+      @include respond-to-min($screen_xl) {
+        padding: 35px 60px;
+        border-radius: 60px 15px 60px 60px;
+      }
+
+      @include respond-to-min($screen_wide) {
+        padding: 52px 92px;
+        border-radius: 80px 20px 80px 80px;
+      }
+    }
+  }
+
+  &--download {
+    margin-top: 12px;
+
+    @include respond-to-min($screen_md) {
+      margin-top: 16px;
+    }
+
+    @include respond-to-min($screen_xl) {
+      margin-top: 34px;
+      margin-bottom: 10px;
+    }
+
+    @include respond-to-min($screen_wide) {
+      margin-top: 46px;
+    }
+  }
+}

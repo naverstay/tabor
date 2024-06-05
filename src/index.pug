@@ -1,0 +1,44 @@
+extends ./components/layout
+include ./components/promo
+include ./components/reg_sliders
+include ./components/reviews
+include ./components/functions
+include ./components/datings
+include ./components/faq
+include ./components/mixins
+
+block head
+  - let pageTitle = 'мята';
+  - let pageDescription = 'мята';
+  - let lorem = 'Приложение по сути неплохое: визуал симпатичный, довольно удобное в&nbsp;использовании, весит немного, не&nbsp;тормозит. Регистрация быстрая и простая, достаточно номера телефона. Мне пока не удалось довольно удобное в&nbsp;использовании, весит немного, не&nbsp;тормозит. Регистрация быстрая и простая, достаточно номера телефона. Мне пока не удалось';
+
+block content
+  main.page.relative.flex.__column
+    section#section-0.section--holder.__white.__end
+      .section
+        +promo()
+
+        .section--end.__left.hide__after-xl
+
+    section#section-1.section--holder.__gray.__end.__start.ovh.js-header-trigger
+      .section
+        +reg_sliders()
+
+    section#section-2.section--holder.__white.__end.__start.ovh
+      .section
+        +reviews()
+
+    section#section-3.section--holder.__gray.__end.__start.ovh
+      .section
+        +functions()
+
+    section.section--holder.__white.__end.__start.ovh
+      .section
+        +datings()
+
+    //-section#section-4.section--holder.__gray.__end.__start.ovh
+      .section
+        +faq()
+
+block scripts
+  script(type="module" src="./assets/js/main.js")

@@ -1,0 +1,38 @@
+include ./mixins
+
+mixin reg_sliders(props = {})
+  - let images = ['left', 'center', 'right'];
+  - let texts = ['Регистрация у нас — это мгновенное путешествие в мир знакомств. Забудьте о долгих и сложных формах! С нами регистрация занимает всего несколько минут, и она абсолютно бесплатна.', 'Аудиозвонки обеспечивают непревзойденное качество связи и удобство общения', 'Каждую минуту на нашей платформе формируется более 300 новых знакомств, открывая широкие возможности для встреч и общения.'];
+  - let getNextIndex = (ind) => {return ((ind + 1) < (images.length - 1)) ? ind + 1 : 0};
+  - let getPrevIndex = (ind) => {return (ind - 1 < 0) ? images.length - 1 : ind - 1};
+
+  .slider--reg
+    .slider--reg_photo.__fade
+      .slider--reg_photo-inner
+        #js-slider-reg-photo.swiper
+          .swiper-wrapper
+            each img, i in images
+              - let index = i + 1
+              .swiper-slide.slide
+                .slider--reg_image.relative
+                  +img_src('./assets/image/slides/', 'phone-center-' + index, 'png')(loading='lazy' width=328 height=702)
+                  .slider--reg_aside
+                    +img_src('./assets/image/slides/', 'phone-left-' + index, 'png')(loading='lazy' width=328 height=702)
+                  .slider--reg_aside
+                    +img_src('./assets/image/slides/', 'phone-right-' + index, 'png')(loading='lazy' width=328 height=702)
+
+      #js-slider-reg-pagination.swiper-pagination.slider--reg_pagination.flex.__center
+
+    .slider--reg_text.relative
+      #js-slider-reg-text.swiper
+        .swiper-wrapper
+          each caption, ind in ['Быстрая и бесплатная регистрация', 'Звони прямо из приложения', 'Первое знакомство через 5 минут']
+            .swiper-slide.slide
+              h2.slider--reg_caption= caption
+              p!= texts[ind]
+
+      .slider--reg_controls.flex.__between
+        #js-slider-reg-prev.btn--green.swiper-button-prev.slider--button.__prev.flex.__center.__center-align
+          img(alt='img' loading='lazy' src='./assets/svg/arrow_l.svg' width=42 height=42)
+        #js-slider-reg-next.btn--green.swiper-button-next.slider--button.__next.flex.__center.__center-align
+          img(alt='img' loading='lazy' src='./assets/svg/arrow_r.svg' width=42 height=42)

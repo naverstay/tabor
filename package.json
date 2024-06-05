@@ -1,0 +1,111 @@
+{
+  "name": "parcel-pug-scss-starter",
+  "description": "Simple boilerplate to start building html templates with parcel, pug, scss, and modern javascript.",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "Oury Diallo",
+    "url": "https://www.oury.dev",
+    "email": "ourystd224@gmail.com"
+  },
+  "keywords": [
+    "parcel",
+    "pug",
+    "scss",
+    "bundler",
+    "parcel-pug"
+  ],
+  "homepage": "https://github.com/ourystd/parcel-pug-scss-starter",
+  "bugs": {
+    "url": "https://github.com/ourystd/parcel-pug-scss-starter/issues"
+  },
+  "source": "src/index.pug",
+  "browserslist": "> 0.5%, last 2 versions, not dead, Safari 14",
+  "scripts": {
+    "dev": "parcel -p 3017",
+    "prebuild": "shx rm -rf deploy",
+    "build": "cross-env NODE_ENV=production parcel build --dist-dir ./deploy",
+    "buildLocal": "shx rm -rf dist && parcel build --public-url ./ --dist-dir ./dist",
+    "predeploy": "npm run build && node inline-styles.js css && node inline-styles.js html",
+    "deploy": "surge --project ./deploy --domain lean-land.surge.sh",
+    "postinstall": "patch-package",
+    "updateSurge": "surge --project ./deploy --domain lean-land.surge.sh"
+  },
+  "staticFiles": {
+    "staticFiles": {
+      "staticPath": [
+        {
+          "staticPath": "src/favicon",
+          "watcherGlob": "**"
+        }
+      ]
+    }
+  },
+  "parcel-namer-struct": [
+    {
+      "type": [
+        "scss",
+        "css"
+      ],
+      "dest": "/styles/"
+    },
+    {
+      "type": [
+        "js"
+      ],
+      "dest": "/scripts/"
+    },
+    {
+      "type": [
+        "avif",
+        "webp",
+        "svg",
+        "jpeg",
+        "jpg",
+        "png"
+      ],
+      "dest": "/images/"
+    }
+  ],
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "modules": true,
+          "useBuiltIns": "usage",
+          "corejs": 3
+        }
+      ]
+    ]
+  },
+  "devDependencies": {
+    "@parcel/core": "^2.12.0",
+    "@parcel/packager-raw-url": "2.12.0",
+    "@parcel/transformer-babel": "^2.12.0",
+    "@parcel/transformer-js": "^2.12.0",
+    "@parcel/transformer-postcss": "^2.12.0",
+    "@parcel/transformer-pug": "2.12.0",
+    "@parcel/transformer-sass": "2.12.0",
+    "@parcel/transformer-webmanifest": "2.12.0",
+    "autoprefixer": "^10.4.19",
+    "cross-env": "^7.0.3",
+    "cssnano": "^7.0.1",
+    "parcel": "^2.12.0",
+    "parcel-namer-struct": "^1.0.0",
+    "parcel-plugin-static-files-copy": "^2.6.0",
+    "patch-package": "^8.0.0",
+    "postcss": "^8.4.38",
+    "postcss-combine-duplicated-selectors": "^10.0.3",
+    "postcss-momentum-scrolling": "^3.14.22",
+    "postcss-sort-media-queries": "^5.2.0",
+    "purgecss": "^6.0.0",
+    "rcs-core": "^3.7.1",
+    "rename-css-selectors": "^4.1.0",
+    "sharp": "^0.33.4",
+    "shx": "0.3.4"
+  },
+  "dependencies": {
+    "swiper": "^11.1.2"
+  }
+}

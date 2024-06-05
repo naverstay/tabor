@@ -1,0 +1,18 @@
+include ./mixins
+include ./burger
+
+mixin header()
+  header.header--holder: .section: .header
+    +burger()
+
+    .flex.__start.__center-align
+      a.logo.js-goto(href='#section-0')
+        img(alt='Мята - знакомства' loading='lazy' src='./assets/svg/logo_s.svg' width=203 height=71)
+
+    +nav()
+
+    .download.flex.__end.__center-align
+      a.btn.btn--green.__s-48.btn--round.hide__after-xl(href='#')
+        span Скачать
+      span.btn.btn--green.__s-48.btn--round.hide__before-xl.js-popup-app(data-popup='popup-app')
+        span Скачать приложение

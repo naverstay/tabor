@@ -1,0 +1,122 @@
+@mixin respond-to-max($custom) {
+  @media only screen and (max-width: $custom - 1) {
+    @content;
+  }
+}
+
+@mixin respond-to-min($custom1) {
+  @media only screen and (min-width: $custom1) {
+    @content;
+  }
+}
+
+@mixin respond-min-max($custom2, $custom3) {
+  @media only screen and (min-width: $custom2) and (max-width: $custom3) {
+    @content;
+  }
+}
+
+@mixin respond-to-min-out-max($custom3, $custom2) {
+  @media only screen and (max-width: $custom3 - 1), only screen and (min-width: $custom2 + 1) {
+    @content;
+  }
+}
+
+@mixin burger() {
+  position: relative;
+  z-index: 11;
+  height: 42px;
+  width: 42px;
+  color: $color_green_light;
+  text-decoration: none;
+  transition: color 0.3s;
+
+  @include respond-to-min($screen_xl) {
+    &:not(:last-child) {
+      margin-right: auto;
+      margin-left: 32px;
+    }
+  }
+
+  &:hover {
+    color: $color_green;
+  }
+
+  > span {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 42px;
+
+    span {
+      position: relative;
+      z-index: 1;
+      background: currentColor;
+      border-radius: 2px;
+      height: 2px;
+      margin: 2.5px auto;
+      width: 50%;
+      transition: transform 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6),
+      opacity 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+
+      &:nth-of-type(2) {
+        width: 40%;
+        transform: translateX(-10%);
+      }
+    }
+  }
+}
+
+@mixin burger_open() {
+  span span {
+    &:nth-of-type(1) {
+      width: 44%;
+      margin: 0;
+      transform-origin: bottom;
+      transform: rotate(45deg) translate(60%, -275%);
+    }
+
+    &:nth-of-type(2) {
+      width: 44%;
+      transform-origin: top;
+      transform: rotatez(-45deg);
+    }
+
+    &:nth-of-type(3) {
+      opacity: 0;
+      margin: 0;
+      transform-origin: bottom;
+      width: 44%;
+      transform: rotate(45deg) translate(25%, -440%);
+    }
+  }
+}
+
+@mixin custom-scroll {
+  scrollbar-color: $scroll-thumb $scroll-track;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 3px;
+    background-color: $scroll-track;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: $scroll-thumb;
+  }
+}

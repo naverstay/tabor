@@ -1,0 +1,193 @@
+@import "var";
+
+.faq {
+  padding-top: 33px;
+
+  @include respond-to-min($screen_sm) {
+    padding-top: 33px;
+  }
+
+  @include respond-to-min($screen_md) {
+    padding-top: 38px;
+  }
+
+  @include respond-to-min($screen_xl) {
+    padding: 80px 100px 0;
+  }
+
+  @include respond-to-min($screen_xxl) {
+    padding: 82px 130px 0;
+  }
+
+  @include respond-to-min($screen_wide) {
+    padding: 108px 180px 0;
+  }
+
+  &--list {
+    padding: 0 14px;
+    margin-bottom: 25px;
+
+    @include respond-to-min($screen_md) {
+      margin: 0 auto 25px;
+      max-width: 512px;
+    }
+
+    @include respond-to-min($screen_xl) {
+      padding: 0;
+      margin: 0 0 -27px;
+      max-width: none;
+      column-count: 2;
+      column-gap: 110px;
+
+      &_more {
+        display: block !important;
+      }
+    }
+
+    @include respond-to-min($screen_wide) {
+      column-gap: 170px;
+    }
+  }
+
+  &--item {
+    padding-left: 34px;
+    margin-bottom: 18px;
+
+    @include respond-to-min($screen_sm) {
+      padding-left: 40px;
+    }
+
+    @include respond-to-min($screen_md) {
+      padding-left: 47px;
+      margin-bottom: 30px;
+    }
+
+    @include respond-to-min($screen_xl) {
+      padding-left: 43px;
+      margin-bottom: 45px;
+    }
+
+    @include respond-to-min($screen_wide) {
+      padding-left: 60px;
+      margin-bottom: 45px;
+    }
+
+    &_title {
+      --icon-size: 24px;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 18px;
+      margin-bottom: 6px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 100%;
+        margin-right: 10px;
+        width: var(--icon-size);
+        height: var(--icon-size);
+        border-radius: 100%;
+        background: #808080 url($question_base64) no-repeat 50% 50%;
+        background-size: 75%;
+      }
+
+      @include respond-to-min($screen_sm) {
+        --icon-size: 26px;
+
+        &::before {
+          margin-right: 13px;
+        }
+      }
+
+      @include respond-to-min($screen_md) {
+        --icon-size: 32px;
+
+        &::before {
+          margin-right: 13px;
+        }
+      }
+
+      @include respond-to-min($screen_md) {
+        font-size: 16px;
+        line-height: 20px;
+      }
+
+      @include respond-to-min($screen_xl) {
+        font-size: 16px;
+        line-height: 18px;
+      }
+
+      @include respond-to-min($screen_wide) {
+        --icon-size: 44px;
+        font-size: 20px;
+        line-height: 23px;
+        margin-bottom: 14px;
+
+        &::before {
+          margin-right: 16px;
+        }
+      }
+    }
+
+    &_text {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 16px;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+
+      @include respond-to-min($screen_md) {
+        font-size: 14px;
+        line-height: 18px;
+        -webkit-line-clamp: 4;
+      }
+
+      @include respond-to-min($screen_xl) {
+        font-size: 12px;
+        line-height: 18px;
+      }
+
+      @include respond-to-min($screen_wide) {
+        font-size: 16px;
+        line-height: 26px;
+      }
+    }
+  }
+
+  &--title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 26px;
+    margin-bottom: 24px;
+
+    @include respond-to-min($screen_sm) {
+      margin-bottom: 26px;
+    }
+
+    @include respond-to-min($screen_md) {
+      font-size: 28px;
+      margin-bottom: 35px;
+    }
+
+    @include respond-to-min($screen_xl) {
+      text-align: left;
+      font-size: 36px;
+      line-height: 45px;
+      margin-bottom: 57px;
+    }
+
+    @include respond-to-min($screen_xxl) {
+
+    }
+
+    @include respond-to-min($screen_wide) {
+      font-size: 48px;
+      line-height: 60px;
+      margin-bottom: 80px;
+    }
+  }
+}

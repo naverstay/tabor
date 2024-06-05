@@ -1,0 +1,310 @@
+@import "var";
+
+:root {
+  box-sizing: border-box;
+  --fancybox-bg: rgba(0, 0, 0, 0.8);
+  --app-height: 100vh;
+  --app-scroll-size: 0;
+  --sat: env(safe-area-inset-top);
+  --sar: env(safe-area-inset-right);
+  --sab: env(safe-area-inset-bottom);
+  --sal: env(safe-area-inset-left);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  --scroll-thumb: #{$color_green};
+  --scroll-track: #{$color_white};
+  --swiper-wrapper-transition-timing-function: ease-in-out;
+
+  @media (hover: none) {
+    --app-scroll-size: 0 !important;
+  }
+}
+
+html {
+  @include custom-scroll();
+  overflow-y: scroll;
+  overflow-x: clip;
+  min-height: 100%;
+  display: flex;
+
+  * {
+    @include custom-scroll();
+  }
+}
+
+body {
+  font: 500 14px/1.2 $Ubuntu;
+  color: $color_gray;
+  background: #f1f3f2;
+  flex: 1 0 100%;
+}
+
+img {
+  height: auto;
+}
+
+.section {
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+
+  @include respond-to-min($screen_xl) {
+    max-width: 1136px;
+  }
+
+  @include respond-to-min($screen_xxl) {
+    max-width: 1204px;
+  }
+
+  @include respond-to-min($screen_wide) {
+    max-width: 1604px;
+  }
+
+  //padding: 0 6px;
+  //
+  //@include respond-to-min($screen_xl) {
+  //  padding: 0 12px;
+  //}
+  //
+  //@include respond-to-min($screen_wide) {
+  //  padding: 0 16px;
+  //}
+
+  &--end {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: var(--section-radius);
+    height: var(--section-radius);
+
+    &.__left {
+
+      &::before {
+        border-top-left-radius: var(--section-radius);
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: var(--section-radius);
+        height: var(--section-radius);
+      }
+
+    }
+  }
+
+  &--holder {
+    --section-radius: 30px;
+    position: relative;
+    padding-bottom: 35px;
+
+    &:only-child {
+      flex: 1 0 auto;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      pointer-events: none;
+    }
+
+    @include respond-to-min($screen_md) {
+      padding-bottom: 37px;
+    }
+
+    @include respond-to-min($screen_lg) {
+      padding-bottom: 40px;
+    }
+
+    @include respond-to-min($screen_xl) {
+      --section-radius: 90px;
+      padding-bottom: 68px;
+    }
+
+    @include respond-to-min($screen_xxl) {
+      --section-radius: 90px;
+      padding-bottom: 65px;
+    }
+
+    @include respond-to-min($screen_wide) {
+      --section-radius: 120px;
+      padding-bottom: 90px;
+    }
+
+    &.__start {
+      &::before {
+        border-top-left-radius: var(--section-radius);
+      }
+    }
+
+    &.__end {
+      &::before {
+        border-bottom-right-radius: var(--section-radius);
+      }
+    }
+
+    &.__white {
+      background: $color_white;
+
+      .section--end {
+        background: $color_white;
+
+        &::before {
+          background: $color_gray_light;
+        }
+      }
+
+      &::before {
+        background: $color_gray_light;
+      }
+    }
+
+    &.__gray {
+      background: $color_gray_light;
+
+      .section {
+        &::after {
+          background: $color_white;
+        }
+
+        &::before {
+          background: $color_gray_light;
+        }
+      }
+
+      &::before {
+        background: $color_white;
+      }
+    }
+  }
+}
+
+.page {
+  flex: 1 0 auto;
+
+  &--popups {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 4;
+    pointer-events: none;
+  }
+
+  &--overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 4;
+    background: rgba(0, 0, 0, .6);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .3s;
+
+    .__open-popup &,
+    .__open-mob-menu & {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+}
+
+.link--green {
+  color: $color_green;
+  transition: color .3s;
+
+  &:hover {
+    color: $color_green_light;
+  }
+}
+
+.flex {
+  display: flex;
+
+  &.__column {
+    flex-flow: column nowrap;
+  }
+
+  &.__wrap {
+    flex-wrap: wrap;
+  }
+
+  &.__between {
+    justify-content: space-between;
+  }
+
+  &.__start {
+    justify-content: flex-start;
+  }
+
+  &.__center {
+    justify-content: center;
+  }
+
+  &.__end {
+    justify-content: flex-end;
+  }
+
+  &.__start-align {
+    align-items: flex-start;
+  }
+
+  &.__center-align {
+    align-items: center;
+  }
+
+  &.__end-align {
+    align-items: end;
+  }
+
+  &.__stretch-align {
+    align-items: stretch;
+  }
+}
+
+.relative {
+  position: relative;
+}
+
+.ovh {
+  overflow: hidden;
+}
+
+.hide {
+  display: none !important;
+}
+
+@each $key, $value in $screens {
+  //.show__before-#{$key},
+  //.show__after-#{$key} {
+  //  display: none;
+  //}
+
+  @include respond-to-min(map-get($screens, $key)) {
+    //.show__after-#{$key} {
+    //  display: unset !important;
+    //}
+
+    .hide__after-#{$key} {
+      display: none;
+    }
+  }
+
+  @include respond-to-max(map-get($screens, $key)) {
+    //.show__before-#{$key} {
+    //  display: unset;
+    //}
+
+    .hide__before-#{$key} {
+      display: none;
+    }
+  }
+}

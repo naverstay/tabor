@@ -1,0 +1,70 @@
+@import "var";
+
+.popup {
+  display: none;
+  background: $color_white;
+  border-radius: 30px;
+  padding: 35px 20px;
+  width: 746px;
+  max-width: 96vw;
+  pointer-events: all;
+
+  @include respond-to-min($screen_xl) {
+    border-radius: 40px;
+    padding: 45px 25px;
+    width: 800px;
+  }
+
+  @include respond-to-min($screen_wide) {
+    border-radius: 46px;
+    padding: 55px 30px;
+    width: 846px;
+  }
+
+  &--close {
+    position: absolute;
+    z-index: 1;
+    top: 22px;
+    right: 22px;
+    cursor: pointer;
+    transition: transform .3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &--title {
+    font-weight: 500;
+    text-align: center;
+    font-size: 36px;
+    line-height: 44px;
+    margin-bottom: 20px;
+
+    @include respond-to-min($screen_xl) {
+      font-size: 44px;
+      line-height: 48px;
+      margin-bottom: 26px;
+    }
+
+    @include respond-to-min($screen_wide) {
+      font-size: 48px;
+      line-height: 52px;
+      margin-bottom: 32px;
+    }
+  }
+
+  &--app {
+    --app-image-gap: 5px;
+    gap: 17px;
+
+    @include respond-to-min($screen_xl) {
+      --app-image-gap: 6px;
+    }
+
+    .btn img {
+      width: auto;
+      max-height: calc(var(--btn-size) - var(--app-image-gap));
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "plugins": {
+    "postcss-momentum-scrolling": {},
+    "postcss-sort-media-queries": {
+      "sort": "mobile-first"
+    },
+    "postcss-combine-duplicated-selectors": {
+      "removeDuplicatedProperties": true
+    },
+    "cssnano": {
+      "preset": [
+        "default",
+        {
+          "discardComments": {
+            "removeAll": true
+          }
+        }
+      ]
+    }
+  }
+}

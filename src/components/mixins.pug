@@ -1,0 +1,25 @@
+mixin app_btns()
+  a.btn.btn--green.__s-54.btn--round(href='https://play.google.com/store/apps/details?id=mint.dating')
+    img(alt='Мята в Google Play' src='./assets/svg/googleplay.svg' width=146 height=46)
+  a.btn.btn--green.__s-54.btn--round(href='https://appgallery.cloud.huawei.com/ag/n/app/C104537637?locale=ru_RU&source=appshare&subsource=C104537637&shareTo=com.android.bluetooth&shareFrom=appmarket&shareIds=9757f3c7f6b34794a4d02f608c805ff1_com.android.bluetooth&callType=SHARE')
+    img(alt='Мята в AppGallery' src='./assets/svg/appgallery.svg' width=139 height=46)
+  a.btn.btn--green.__s-54.btn--round(href='https://apps.rustore.ru/app/mint.dating')
+    img(alt='Мята в Rustore' src='./assets/svg/rustore.svg' width=130 height=46)
+
+mixin nav(path, name, ext)
+  nav.nav
+    ul.navigation
+      each item, ind in navigation
+        li: a.js-goto(href='#section-' + (ind + 1))= item
+
+mixin img_src(path, name, ext)
+  - let as = '?as=avif';
+  - let x1 = path + name + '.' + ext + as;
+
+  img(alt='img' src=x1 srcset=path + name + '@2x.' + ext + as + ' 2x, ' + x1 + ' 1x')&attributes(attributes)
+
+mixin loop_while(counter)
+  - let i = 0;
+  while i < counter
+    - i++;
+    block

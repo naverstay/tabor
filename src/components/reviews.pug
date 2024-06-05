@@ -1,0 +1,35 @@
+include ./mixins
+
+mixin reviews(props = {})
+  - const texts = ['Искал любовь и нашел ее благодаря Мяте. Отличное приложение, все функции работают идеально. Очень доволен', 'Благодаря Мяте я нашла свою любовь. Приложение простое в использовании и помогает быстро найти подходящего партнера.', 'Любимое приложение для знакомств! Простое в использовании, нет скрытых платежей. Нашла много интересных людей.', 'Приложение Мята – отличный способ найти любовь. Удобный функционал и красивый дизайн. В общем, пользоваться приятно.', 'Мята действительно топ! Аудиозвонки и удобный мессенджер делают приложение одним из лучших для знакомств.'];
+  - const names = ['Александр М.', 'Мария А.', 'Диана К.', 'Миша П.', 'Николай С.'];
+
+  .reviews
+    .reviews--title Отзывы пользователей в&nbsp;PlayMarket
+
+    .reviews--slider.relative
+      #js-slider-reviews.swiper
+        .swiper-wrapper
+          each name, ind in names
+            .swiper-slide.slide
+              .reviews--slider_item
+                .reviews--slider_caption.flex.__between.__center-align
+                  h4= name
+                  span.flex.__center-align.reviews--slider_rating
+                    img(alt='img' loading='lazy' src='./assets/svg/star.svg' width=23 height=24)
+                    span 5
+                .reviews--slider_text
+                  p!= texts[ind]
+
+                //-.flex.__end.reviews--slider_more
+                  a.link--green(href='#') Читать полностью
+
+      .reviews--slider_controls.flex.__between
+        #js-slider-reviews-prev.btn--green.swiper-button-prev.slider--button.__prev.flex.__center.__center-align
+          img(alt='img' loading='lazy' src='./assets/svg/arrow_l.svg' width=42 height=42)
+        #js-slider-reviews-next.btn--green.swiper-button-next.slider--button.__next.flex.__center.__center-align
+          img(alt='img' loading='lazy' src='./assets/svg/arrow_r.svg' width=42 height=42)
+
+    .reviews--download.flex.__center.__center-align
+      span.btn.btn--green.__s-64.btn--round.js-popup-app(data-popup='popup-app')
+        span Скачать приложение

@@ -1,0 +1,13 @@
+mixin page()
+  body.flex.__start.__column.relative
+    block
+
+    .page--overlay.js-close-menu
+
+    .page--popups.flex.__center-align.__center.hide__before-lg
+      #popup-app.popup.js-popup.relative
+        .popup--close.js-close-menu
+          img(alt='img' loading='lazy' src='./assets/svg/close.svg' width=32 height=32)
+        .popup--title Скачивайте наше приложение
+        .popup--app.flex.__center-align.__center
+          +app_btns()

@@ -1,0 +1,9 @@
+@import "extands";
+
+.burger {
+  @include burger();
+
+  .__open-mob-menu & {
+    @include burger_open();
+  }
+}

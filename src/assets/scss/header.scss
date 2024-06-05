@@ -1,0 +1,308 @@
+@import "var";
+@import "burger";
+
+.header {
+  display: grid;
+  grid-template-columns:  1fr 1fr 1fr;
+  transition: padding .3s, margin .3s, background .3s;
+  padding: 5px 7px;
+  border-radius: 38px;
+  margin-bottom: 10px;
+
+  > .flex {
+    position: relative;
+    z-index: 2;
+  }
+
+  &--holder {
+    position: relative;
+    z-index: 5;
+    transition: background-color .3s;
+
+    .__open-popup & {
+      z-index: 4;
+    }
+
+    @include respond-to-min($screen_lg) {
+      .__scroll-hide & {
+        position: sticky;
+        top: 0;
+        right: 0;
+        left: 0;
+        opacity: 0;
+        background-color: transparent;
+
+        .header {
+          transition: padding .3s, margin .3s, transform .3s, background .3s;
+          transform: translateY(-150%);
+        }
+      }
+
+      .__scroll-screen & {
+        opacity: 1;
+        transition: opacity .3s;
+
+        .header {
+          transform: translateY(0);
+          background: $color_white;
+          box-shadow: 0 1px 24px #2d2d2d10;
+
+          @include respond-to-min($screen_wide) {
+
+            .navigation {
+              padding-top: 3px;
+            }
+          }
+        }
+      }
+    }
+
+    @include respond-to-max($screen_lg) {
+      position: sticky;
+      top: 0;
+      right: 0;
+      left: 0;
+
+      .__scrolled & {
+        .header {
+          box-shadow: 0 1px 18px #2d2d2d20;
+        }
+      }
+    }
+
+    @include respond-to-min($screen_lg) {
+      border-radius: 0 0 16px 16px;
+      background: $color_white;
+      margin-bottom: 10px;
+    }
+
+    @include respond-to-min($screen_xl) {
+      background: none;
+    }
+  }
+
+  &.__fixed {
+    background: $color_white;
+  }
+
+  @include respond-to-min($screen_sm) {
+    padding: 5px;
+  }
+
+  @include respond-to-min($screen_md) {
+    padding: 7px;
+  }
+
+  @include respond-to-min($screen_lg) {
+    grid-template-columns: auto 1fr auto;
+    max-width: 840px;
+    margin: 0 auto;
+    padding: 9px 0;
+  }
+
+  @include respond-to-min($screen_xl) {
+    padding: 5px 0;
+    margin: 20px auto 10px;
+    max-width: 970px;
+  }
+
+  @include respond-to-min($screen_wide) {
+    --btn-size: 48px;
+    --btn-gap: 30px;
+    --btn-font-size: 18px;
+    padding: 15px 20px;
+    max-width: 1336px;
+  }
+
+  @include respond-to-max($screen_lg) {
+    border-radius: 0 0 16px 16px;
+    background: $color_white;
+  }
+}
+
+.logo {
+  margin: -14px 0 -18px;
+  padding: 0 3px;
+  width: 110px;
+
+  img {
+    max-width: 100%;
+  }
+
+  @include respond-to-min($screen_sm) {
+    width: 116px;
+  }
+
+  @include respond-to-min($screen_md) {
+    width: 120px;
+  }
+
+  @include respond-to-min($screen_lg) {
+    width: 128px;
+  }
+
+  @include respond-to-min($screen_xl) {
+    width: 158px;
+  }
+
+  @include respond-to-min($screen_wide) {
+    width: 206px;
+  }
+
+  @include respond-to-max($screen_lg) {
+    margin: -14px auto -18px;
+  }
+}
+
+.nav {
+  .header & {
+    transition: padding .3s;
+    pointer-events: none;
+
+    @include respond-to-min($screen_lg) {
+      padding-right: 10px;
+    }
+
+    @include respond-to-min($screen_xl) {
+      padding-right: 6px;
+    }
+
+    @include respond-to-min($screen_wide) {
+
+    }
+
+    @include respond-to-max($screen_lg) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      border-radius: 0 0 16px 16px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-radius: inherit;
+        background: $color_white;
+        z-index: 1;
+      }
+
+    }
+  }
+}
+
+.navigation {
+  pointer-events: all;
+
+  a {
+    transition: color .3s;
+    text-transform: uppercase;
+    color: $color_gray;
+    font-size: var(--nav-font-size);
+
+    &:hover {
+      color: $color_green;
+    }
+  }
+
+  .header & {
+    --nav-font-size: 10px;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    gap: 52px;
+
+    @include respond-to-min($screen_md) {
+      --nav-font-size: 14px;
+    }
+
+    @include respond-to-min($screen_lg) {
+      --nav-font-size: 11px;
+      display: flex;
+      max-width: 530px;
+      margin: 0 auto;
+    }
+
+    @include respond-to-min($screen_xl) {
+      --nav-font-size: 12px;
+      gap: 55px;
+    }
+
+    @include respond-to-min($screen_wide) {
+      --nav-font-size: 14px;
+      max-width: none;
+      gap: 85px;
+    }
+
+
+    @include respond-to-max($screen_lg) {
+      transition: top .3s, transform .3s;
+      transform: translateY(-100%);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      border-radius: 0 0 16px 16px;
+      background: $color_white;
+      padding: 20px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: 100%;
+        height: 20px;
+        right: 0;
+        left: 0;
+        background: inherit;
+      }
+
+      li {
+        margin-bottom: 28px;
+
+        &:last-child {
+          margin-bottom: 8px;
+        }
+      }
+
+      @include respond-to-max($screen_md) {
+        padding: 10px 18px;
+
+        li {
+          margin-bottom: 12px;
+        }
+      }
+
+      @include respond-to-max($screen_sm) {
+
+        li {
+          margin-bottom: 14px;
+        }
+      }
+    }
+
+    .__open-mob-menu & {
+      transform: translateY(0);
+      top: 100%;
+    }
+  }
+}
+
+.download {
+  padding-right: 10px;
+
+  @include respond-to-min($screen_lg) {
+    padding-right: 12px;
+  }
+
+  @include respond-to-min($screen_xl) {
+    padding-right: 5px;
+  }
+
+  @include respond-to-min($screen_wide) {
+    padding-right: 0;
+  }
+}

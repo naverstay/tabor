@@ -1,0 +1,25 @@
+include page
+include header
+include footer
+
+doctype html
+html(lang='ru')
+  include head
+
+  +header()
+
+  +page()
+    block content
+
+    +footer()
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link id="font-link" href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@400;500&display=block" rel="stylesheet">
+
+    link(rel="stylesheet" href="./assets/scss/main.scss")
+
+    <script src="https://cdn.jsdelivr.net/npm/js-throttle-debounce@0.1.1/src/js-throttle-debounce.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    block scripts
