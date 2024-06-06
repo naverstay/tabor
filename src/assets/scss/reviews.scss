@@ -235,7 +235,7 @@
 
     &_item {
       padding: 22px 26px;
-      border-radius: 34px 10px 34px 34px;
+      border-radius: 34px;
       background: $color_white;
 
       @include respond-to-min($screen_md) {
@@ -245,12 +245,12 @@
 
       @include respond-to-min($screen_xl) {
         padding: 35px 60px;
-        border-radius: 60px 15px 60px 60px;
+        border-radius: 48px;
       }
 
       @include respond-to-min($screen_wide) {
         padding: 52px 92px;
-        border-radius: 80px 20px 80px 80px;
+        border-radius: 60px;
       }
     }
   }

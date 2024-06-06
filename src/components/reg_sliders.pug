@@ -29,7 +29,7 @@ mixin reg_sliders(props = {})
           each caption, ind in ['Быстрая и бесплатная регистрация', 'Звони прямо из приложения', 'Первое знакомство через 5 минут']
             .swiper-slide.slide
               h2.slider--reg_caption= caption
-              p!= texts[ind]
+              p!= addNbsp(texts[ind])
 
       .slider--reg_controls.flex.__between
         #js-slider-reg-prev.btn--green.swiper-button-prev.slider--button.__prev.flex.__center.__center-align

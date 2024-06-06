@@ -11,7 +11,7 @@ mixin datings(props = {})
         .datings--slider_holder
           #js-slider-datings.swiper
             .swiper-wrapper
-              each u, i in new Array(3).fill(null)
+              each u, i in new Array(1).fill(null)
                 - let user = i + 1;
                 .swiper-slide.slide.relative(class=( 'js-user-' + user))
                   each n, ind in new Array(7).fill(null)

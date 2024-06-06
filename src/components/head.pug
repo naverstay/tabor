@@ -1,3 +1,6 @@
+- const prepositions = ["в", "с", "о", "у", "к", "и", "от", "до", "на", "по", "со", "из", "над", "под", "про", "при", "без", "подо", "вокруг", "между"];
+- const addNbsp = (str) => {return str.replace(/(\S+?)( )/g, (_, p) => p + (prepositions.includes(p.toLowerCase()) ? '&nbsp;' : ' '))};
+
 head
   meta(charset='utf-8')
   meta(http-equiv='x-ua-compatible', content='ie=edge')
@@ -36,9 +39,11 @@ head
     .slider--reg {
       display: none !important;
     }
+
     #section-1 {
       flex: 1 0 auto;
     }
+
     #section-1.section--holder.__end:before {
       border-bottom-right-radius: 0;
     }

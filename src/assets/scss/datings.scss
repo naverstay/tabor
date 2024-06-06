@@ -145,7 +145,7 @@
 
       &::after {
         z-index: 2;
-        width: 42%;
+        width: 45%;
         margin-top: -2%;
         padding-bottom: 38%;
         background: url($heart_base64) no-repeat 50% 50%;
@@ -196,14 +196,14 @@
 
       &.item-1 {
         z-index: 2;
-        top: 22%;
+        top: 20%;
         left: 3.5%;
         width: 22.5%;
       }
 
       &.item-2 {
         z-index: 2;
-        top: 6.5%;
+        top: 4.5%;
         left: 25%;
         width: 18.75%;
       }
@@ -215,28 +215,28 @@
       }
 
       &.item-4 {
-        z-index: 2;
-        top: 31%;
+        top: 29%;
         left: 78%;
         width: 22%;
       }
 
       &.item-5 {
         z-index: 2;
-        top: 66.5%;
+        top: 57.5%;
         left: 65%;
         width: 22.25%;
       }
 
       &.item-6 {
-        bottom: 0;
-        left: 23%;
+        z-index: 2;
+        bottom: 7%;
+        left: 29.5%;
         width: 21%;
       }
 
       &.item-7 {
-        top: 50.5%;
-        left: 0;
+        top: 49.5%;
+        left: 1%;
         width: 23.5%;
       }
 
