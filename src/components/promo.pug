@@ -1,14 +1,15 @@
 mixin promo(props = {})
   .promo
     .promo--left
-      .promo--label
-        span
-          +img_src('./assets/image/', 'roskach', 'png')(width=56 height=56)
-        p Лучшее приложение знакомств 2024 по версии Роскачества
       h1.promo--title Табор — онлайн знакомства в&nbsp;вашем мобильном
       .promo--text С миллионами пользователей и продвинутыми фильтрами поиска, вы точно найдете того, кто подходит именно вам
       .promo--app
         +app_btns()
+
+      .promo--label
+        span
+          +img_src('./assets/image/', 'roskach', 'png')(width=56 height=56)
+        p Лучшее приложение знакомств 2024 по версии Роскачества
 
     .promo--right
       .promo--screen
