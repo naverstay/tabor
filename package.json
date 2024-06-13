@@ -25,7 +25,7 @@
     "dev": "parcel -p 3017",
     "prebuild": "shx rm -rf deploy",
     "build": "cross-env NODE_ENV=production parcel build --dist-dir ./deploy",
-    "buildLocal": "shx rm -rf dist && parcel build --public-url ./ --dist-dir ./dist",
+    "buildLocal": "cross-env NODE_ENV=production shx rm -rf dist && parcel build --public-url ./ --dist-dir ./dist",
     "predeploy": "npm run build && node inline-styles.js css && node inline-styles.js html",
     "deploy": "surge --project ./deploy --domain full-swing.surge.sh",
     "postinstall": "patch-package",
