@@ -55,6 +55,7 @@
       @include respond-to-max($screen_xl) {
         font-size: 20px;
         line-height: 24px;
+        padding: 0 30px;
       }
     }
 
