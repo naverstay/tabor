@@ -12,7 +12,9 @@ mixin header()
     +nav()
 
     .download.flex.__end.__center-align
-      a.btn.btn--green.__s-48.btn--round.hide__after-xl(href='#')
+      //-a.btn.btn--green.__s-48.btn--round.hide__after-xl(href='#')
         span Скачать
-      span.btn.btn--green.__s-48.btn--round.hide__before-xl.js-popup-app(data-popup='popup-app')
-        span Скачать приложение
+        span приложение
+      span.btn.btn--green.__s-48.btn--round.js-popup-app(data-popup='popup-app')
+        span Скачать
+        span.hide__before-xl &nbsp;приложение

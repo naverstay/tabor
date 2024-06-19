@@ -4,9 +4,9 @@
   display: none;
   background: $color_white;
   border-radius: 30px;
-  padding: 35px 20px;
+  padding: 30px 10px;
   width: 746px;
-  max-width: 96vw;
+  max-width: 90vw;
   pointer-events: all;
 
   @include respond-to-min($screen_xl) {
@@ -29,6 +29,16 @@
     cursor: pointer;
     transition: transform .3s;
 
+    @include respond-to-max($screen_xl) {
+      top: 16px;
+      right: 16px;
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
     &:hover {
       transform: scale(1.2);
     }
@@ -40,6 +50,13 @@
     font-size: 36px;
     line-height: 44px;
     margin-bottom: 20px;
+
+    .page--popups & {
+      @include respond-to-max($screen_xl) {
+        font-size: 20px;
+        line-height: 24px;
+      }
+    }
 
     @include respond-to-min($screen_xl) {
       font-size: 44px;
@@ -57,6 +74,15 @@
   &--app {
     --app-image-gap: 5px;
     gap: 17px;
+
+    @include respond-to-max($screen_xl) {
+      flex-wrap: wrap;
+      gap: 8px;
+
+      .btn.__s-54 {
+        --btn-size: 40px;
+      }
+    }
 
     @include respond-to-min($screen_xl) {
       --app-image-gap: 6px;
